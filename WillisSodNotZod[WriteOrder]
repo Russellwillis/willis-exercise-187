@@ -1,0 +1,55 @@
+package edu.cpt187.willis.exercise6;
+
+//Russell Willis
+//CPT 187
+//7-21-21
+//This program will send the inventory to a separate file in the system so that the sale can be recorded and kept for the company to look back at eventually
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class WriteOrder 
+{//write order
+	private boolean fileFoundFlag = false;
+	private String masterFileName = "";
+	private int recordCount = 0;
+
+	public WriteOrder(String borrowedFileName)
+	{//non-default constructor
+		masterFileName = borrowedFileName;
+	}//end constructor
+
+	public void setWriteOrder(int borrowedItemID, String borrowedItemName, double borrowedItemPrice, int borrowedQuantity, double borrowedOrderCost)
+	{//setter to write the order to the masterfile
+		try
+		{//try
+			PrintWriter filePW = new PrintWriter(new FileWriter(masterFileName, true));
+
+			filePW.printf("%n%d\t%s\t%f\t%d\t%f", borrowedItemID, borrowedItemName, borrowedItemPrice, borrowedQuantity, borrowedOrderCost);
+			fileFoundFlag = true;
+
+			filePW.close();
+		}//end try
+		catch(IOException ex)
+		{//catch
+			System.out.print("There was an error" + ex);
+		}//end catch
+		recordCount++;
+	}//end setter
+
+	public boolean getFileFoundFlag()
+	{//get file found
+		return fileFoundFlag;
+	}//end getter
+
+	public String getFileName()
+	{//getter to get file name
+		return masterFileName;
+	}//end get file name
+
+	public int getRecordCount()
+	{//record count
+		return recordCount;
+	}//end record count
+}//end writeOrder
