@@ -85,7 +85,6 @@ public class UserAccounts
 		}//end try
 		catch(IOException ex)
 		{//catch
-			System.out.print("There was an error" + ex);
 		}//end catch
 		recordCount++;
 	}//end setter
