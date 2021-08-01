@@ -1,0 +1,166 @@
+package edu.cpt187.willis.exercise6;
+
+//Russell Willis
+//CPT 187
+//7-21-21
+//This program gets all the information that the user will input. So the user will input everything they want and this program will show what the user picked 
+public class Order 
+{
+	private final double TAX_RATE = .085;
+	private int discountType = 0;
+	private int itemID = 0;
+	private String itemName = "";
+	private double itemPrice = 0.0;
+	private String discountName = "";
+	private double discountRate = 0.0;
+	private int howMany = 0;
+	private int lastItemSelectedIndex = 0;
+	private String prizeName = "";
+
+	public Order()
+	{
+
+	}
+
+	public void setLastItemSelectedIndex(int borrowedSearchIndex)
+	{//setter to set lastItemSelectedIndex
+		lastItemSelectedIndex = borrowedSearchIndex;
+	}
+
+	public void setItemID(int[] borrowedItemIDs)
+	{//setter to set itemID
+		itemID = borrowedItemIDs[lastItemSelectedIndex];
+	}
+
+	public void setItemName(String[] borrowedItemNames)
+	{//setter to set item name
+		itemName = borrowedItemNames[lastItemSelectedIndex];
+	}
+	//This setter will assign the item price
+	public void setItemPrice(double[] borrowedItemPrices)
+	{
+		itemPrice = borrowedItemPrices[lastItemSelectedIndex];
+	}
+	//this setter will assign the quantity
+	public void setHowMany(String borrowedHowMany)
+	{
+		howMany = Integer.parseInt(borrowedHowMany);
+	}
+	//this setter will set the discount type
+	public void setDiscountType(char borrowedMenuSelection)
+	{
+		discountType = borrowedMenuSelection - 'A';
+	}
+	//This setter will assign the discount name
+	public void setDiscountName(String[] borrowedDiscountNames)
+	{
+		discountName = borrowedDiscountNames[discountType];
+
+	}//end setter
+	//This setter will assign the discount rate
+	public void setDiscountRate(double[] borrowedDiscountRate)
+	{
+		discountRate = borrowedDiscountRate[discountType];
+	}//end setter
+
+	public void setPrizeName(String[] borrowedPrizeNames, int borrowedPrizeIndex)
+	{//setter sets the prize name at random
+		prizeName = borrowedPrizeNames[borrowedPrizeIndex];
+	}//end setter
+
+	public void setDecreaseInStock(Inventory borrowedInventoryObject)
+	{//setter to decrease in stock counts
+		borrowedInventoryObject.setReduceStock(howMany);
+	}//end setter
+
+	//getters
+
+	public int getInStockCount(int[] borrowedInStockCounts)
+	{//gets in stock counts
+		return borrowedInStockCounts[lastItemSelectedIndex];
+	}
+
+	public int getItemID()
+	{//gets itemId
+		return itemID;
+
+	}
+	//This getter gets The item name
+	public String getItemName()
+	{
+		return itemName;
+	}//end getter
+
+	//This getter gets The item price
+	public double getItemPrice()
+	{
+		return itemPrice;
+	}//end getter
+
+	//This getter gets The howMany
+	public int getHowMany()
+	{
+		return howMany;
+	}//end getter
+
+	//This getter gets The discount name
+	public String getDiscountName()
+	{
+		return discountName;
+	}
+
+	//This getter gets The discountRate
+	public double getDiscountRate()
+	{
+		return discountRate;
+	}//end getter
+
+	//This getter gets The discount Amount through multiplication
+	public double getDiscountAmt()
+	{
+		return discountRate * itemPrice;
+
+	}//end getter
+	//This getter gets The discountPrice through subtraction
+	public double getDiscountPrice()
+	{
+		return itemPrice - getDiscountAmt();
+
+	}
+
+	public String getPrizeName()
+	{//getter gets the prize name
+		return prizeName;
+	}//end getter
+
+	//This getter gets The subTotal through multiplication
+	public double getSubTotal()
+	{
+		return getDiscountPrice() * howMany;
+
+	}//end getter
+
+	////This getter gets The tax rate
+	public double getTaxRate()
+	{
+		return TAX_RATE;
+
+	}//end getter
+
+	//This getter gets The tax amount through multiplication
+	public double getTaxAmt()
+	{
+		return TAX_RATE * getSubTotal();
+	}//end getter
+	//This getter gets The total cost through addition
+	public double getTotalCost()
+	{
+		return getSubTotal() + getTaxAmt();
+	}//end getter
+
+
+
+
+
+}//end order
+
