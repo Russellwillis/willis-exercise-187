@@ -105,7 +105,7 @@ public class Inventory
 			localSwap = false;
 			while(localIndex < localLast)
 			{//while
-				if(itemIDs[localIndex] > itemIDs[localIndex + 1])
+				if(itemIDs[localIndex] > itemIDs[localIndex + ONE])
 				{//if
 					setSwapArrayElements(localIndex);
 					localSwap = true;
@@ -123,7 +123,7 @@ public class Inventory
 	public void setSwapArrayElements(int borrowedIndex)
 	{//sets the arrays to swap
 		int[] localItemIDs = itemIDs;
-		itemIDs[borrowedIndex + 1] = localItemIDs[borrowedIndex];
+		itemIDs[borrowedIndex + ONE] = localItemIDs[borrowedIndex];
 
 
 
@@ -146,11 +146,11 @@ public class Inventory
 			}//end if
 			else if(itemIDs[localMid] < borrowedBorrowedID)
 			{//else if
-				localFirst = localMid + 1;
+				localFirst = localMid + ONE;
 			}//end else if
 			else
 			{//else
-				localLast = localMid - 1;
+				localLast = localMid - ONE;
 			}//end else
 		}//end while
 
