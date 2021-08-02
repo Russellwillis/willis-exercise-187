@@ -33,7 +33,7 @@ public class WriteOrder
 		}//end try
 		catch(IOException ex)
 		{//catch
-			System.out.print("There was an error" + ex);
+		recordCount = NOT_FOUND;
 		}//end catch
 		recordCount++;
 	}//end setter
