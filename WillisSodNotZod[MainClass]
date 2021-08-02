@@ -3,8 +3,8 @@ package edu.cpt187.willis.exercise6;
 //Russell Willis
 //CPT 187
 //7-21-21
-//The purose of this lesson is for the user to be able to sign in to an account or to create an account. After that the user will need to choose to load a file, then input the file the user wants.
-//After that the user will need to choose to create an order, then the user will input the search number the user wants.
+//The purose of this lesson is for the user to be able to sign in to an account or to create an account. After that the user will need to choose to load the inventory, then tell the employee what the customer wants.
+//After that the customer will need to choose to create an order, then the employee will search item the customer wants.
 
 import java.util.Scanner;
 
