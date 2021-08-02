@@ -66,10 +66,6 @@ public class UserAccounts
 		{//if
 			searchedIndex = NOT_FOUND;
 		}//end if
-		else
-		{//else
-			searchedIndex = getSeqSearch(borrowedUserName);
-		}//end else
 
 	}//end setter
 
