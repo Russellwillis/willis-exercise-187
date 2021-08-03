@@ -33,7 +33,7 @@ public class WriteOrder
 		}//end try
 		catch(IOException ex)
 		{//catch
-		recordCount = NOT_FOUND;
+			fileFoundFlag = false;
 		}//end catch
 		recordCount++;
 	}//end setter
